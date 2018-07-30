@@ -49,7 +49,7 @@
 
       #map {
         height: 500px;
-        width: 925px;
+        width: 70%;
         top: 100%;
         /* left: 5% */
 
@@ -80,8 +80,9 @@
     position:absolute;
     width: 100%;
     height: 90px;
-    background-color:rgb(97,125,138);
-    top: 600px;
+    /* background-color:cyan; */
+    /* background-color:rgb(97,125,138); */
+    top: 88%;
 }
       #findhotels {
         position: absolute;
@@ -90,70 +91,90 @@
         font-size: 14px;
         padding: 4px;
         z-index: 5;
-        background-color: #fff;
       }
-      #locationField {
+      /* #locationField {
         position: absolute;
         width: 350px;
         height: 50px;
         left: 2%;
         top: 10px;
         z-index: 200;
-        background-color: #fff;
+        background-color: green;
+      } */
+      #autocomplete {
+        position: absolute;
+        width: 350px;
+        height: 50px;
+        left: 10%;
+        bottom: 4%;
+        z-index: 5;
+        background-color: rgb(65,198,218);
+        /* background-color:blueviolet; */
+        color: black;
+        font-size: 20px;
+        padding-left: 10px;
       }
-      #controls {
+      ::placeholder {
+          color: black;
+          opacity: .7; 
+}
+
+      /* #controls {
         position: absolute;
         left: 30%;
         width: 250px;
         height: 50px;
         z-index: 5;
-        /* background-color:lime; */
+        background-color:orange;
         font-size: 15px;
-      }
+      } */
 
 #selectType {
   position: absolute;
-  background-color: #fff;
-  z-index: 200;
+  left: 48%;
+  bottom: 25%;
+  background-color: rgb(65,198,218);
+  z-index: 5;
   width: 250px;
   height: 50px;
   display: block;
+  padding-left: 10px;
+  color: black;
+
 
 }
         #searchButton {
-        width: 60px;
+        width: 120px;
         height: 40px;
         position: absolute;
-        left: 50%;
+        left: 76%;
         /* top: -5px; */
         z-index: 5;
-        /* background-color: #fff; */
+        color: rgb(65,198,218);
         font-size: 15px;
+        bottom: 35%
 
       }
 
       #search {
        width: 80px;
        height: 50px;
+       color: black;
+       border-radius: 6px;
+       background-color: rgb(65,198,218);
+       width: 120px;
+
+
+
        /* top: 20px; */
       }
-      #autocomplete {
-        position: absolute;
-        width: 350px;
-        height: 50px;
-        left: 0%;
-        top: 0%;
-        z-index: 5;
-        background-color: #fff;
-        /* background-color:blueviolet; */
-        font-size: 20px;
-        padding-left: 10px;
 
+      #search:hover {background-color: cornflowerblue}
 
-      }
 
 #map-container {
-  margin-top: 80px;
+  margin-top: 0%;
+width: 100%; 
 }
 
       .placeIcon {
@@ -167,7 +188,11 @@
       }
       #resultsTable {
         border-collapse: collapse;
-        width: 400px;
+      }
+      #results {
+        background-color: blueviolet;
+        z-index: 20;
+
       }
       #rating {
         font-size: 13px;
@@ -185,12 +210,13 @@
       }
 
   .row-map {
-  width: 100%;
+  width: 70%;
   text-align: center;
   font-size: 30px;
-  margin-top: -30px;
+  /* margin-top: -10%; */
   background-color: rgb(97,125,138)
 }
+
 /* Clear floats after the columns */
 .row-map:after {
     content: "";
@@ -219,18 +245,16 @@ body {
     font-weight: bold;
     font-size: 110%;
 }
-.row-map {
-  width: 100%;
-  text-align: center;
-  font-size: 30px;
-  margin-top: -30px;
-  background-color: rgb(97,125,138);
-  /* border-style: solid;
-    border-color: green;
-    border-radius: 4px;
-    border-width: 3px; */
-    margin-top: 200px;
+
+.column-results {
+  padding: 10px;
+  height: 200px; 
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: -60px;
+  width: 25%
 }
+
 /* Clear floats after the columns */
 .row-map:after {
     content: "";
@@ -263,14 +287,14 @@ body {
     </noscript>
  <div id="root"></div>
 
- <div class="row row-map" id="searchParams">
-    <div class="column column-map" id="locationField">
-        <input id="autocomplete" placeholder="Enter a city" type="text" />
-    </div>
+ <div class="row" id="searchParams">
+    <!-- <div class="column column-map" id="locationField"> -->
+        <input id="autocomplete" placeholder="Enter a location" type="text" />
+    <!-- </div> -->
   
-    <div class="column column-map" id="controls" >
+    <!-- <div class="column column-map" id="controls" > -->
         <select id="selectType">
-          <option value="">Select a type of place</option>
+          <option value="">Select a type of amenity</option>
           <option value="airport">Airport</option>
           <option value="bank">Bank</option>
           <option value="bar">Bar</option>
@@ -297,7 +321,7 @@ body {
           <option value="synagogue">Synagogue</option>
         
         </select>
-      </div>
+      <!-- </div> -->
     <div class="column column-map" id="searchButton">
       <button id='search'>Search</button>
     </div>
@@ -306,7 +330,7 @@ body {
 <div class='row row-map' id='map-container'>
       <div class="column column-map" id="map"></div>
    
-    <div class="column column-map"id="listing">
+    <div class="column column-results"id="listing">
         <table id="resultsTable">
           <tbody id="results"></tbody>
         </table>
